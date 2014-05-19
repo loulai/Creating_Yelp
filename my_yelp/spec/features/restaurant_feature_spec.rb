@@ -12,6 +12,7 @@ describe 'my restaurant index page' do
 end
 
 describe 'creating a restaurant' do
+
 	it 'should add a restaurant to the index' do
 		visit '/restaurants/new'
 		fill_in 'Name', with: 'Pod'
@@ -23,6 +24,7 @@ describe 'creating a restaurant' do
 
 		expect(page).to have_content('Pod')
 	end
+	
 end
 
 
