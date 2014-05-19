@@ -19,7 +19,9 @@ describe 'creating a restaurant' do
 
 		click_button 'Create Restaurant'
 
-		Restaurant.all.count == 1
+		expect(current_path).to eq('/restaurant')
+
+		expect(page).to have_content('Pod')
 	end
 end
 
