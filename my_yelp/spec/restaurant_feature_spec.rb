@@ -1,6 +1,12 @@
 require 'spec_helper'
 
-describe 'my rest'
+describe 'my restaurant index page' do
+	
+	context 'when there are no restaurants yet' do
+		expect(page).to have_content('No restaurants added yet')
+	end	
+
+end
 
 
 
