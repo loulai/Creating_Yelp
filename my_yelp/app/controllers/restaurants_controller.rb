@@ -6,4 +6,8 @@ class RestaurantsController < ApplicationController
 	def new
 	end
 
+	def create
+		Restaurant.create({name: 'Pret', address: '5 City Road, London'})
+	end
+
 end
