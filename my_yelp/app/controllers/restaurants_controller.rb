@@ -7,7 +7,8 @@ class RestaurantsController < ApplicationController
 	end
 
 	def create
-		Restaurant.create({name: 'Pret', address: '5 City Road, London'})
+		Restaurant.create({name: 'Pod', address: '1 City Road, London'})
+		redirect_to '/restaurants'
 	end
 
 end
