@@ -11,6 +11,18 @@ describe 'my restaurant index page' do
 
 end
 
+describe 'creating a restaurant' do
+	it 'should add a restaurant to the index' do
+		visit '/restaurants/new'
+		fill_in 'Name', with: 'Pod'
+		fill_in 'Address', with: '1 City Road'
+
+		click_button 'Create Restaurant'
+
+		Restaurant.all.count == 1
+	end
+end
+
 
 
 
