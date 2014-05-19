@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe 'my restaurant index page' do
 	
 	context 'when there are no restaurants yet' do
