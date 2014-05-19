@@ -19,7 +19,7 @@ describe 'creating a restaurant' do
 
 		click_button 'Create Restaurant'
 
-		expect(current_path).to eq('/restaurant')
+		expect(current_path).to eq('/restaurants')
 
 		expect(page).to have_content('Pod')
 	end
