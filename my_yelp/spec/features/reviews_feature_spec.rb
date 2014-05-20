@@ -5,12 +5,13 @@ describe 'writing reviews' do
 	before { Restaurant.create(name: 'Eat', address: '50 City Road', cuisine: 'pot pie')}
 
 	specify 'restaurants begin with no reviews' do
+		visit '/restaurants'
 		expect(page).to have_content('0 reviews')
 	end
 
 	it 'adds a review to the restaurant' do
 		visit '/restaurants'
-		click_link 'review Pret'
+		click_link 'Review Eat'
 
 		fill_in 'Review', with: 'This restaurant was the bomb'
 		select '4', from: 'Rating'
