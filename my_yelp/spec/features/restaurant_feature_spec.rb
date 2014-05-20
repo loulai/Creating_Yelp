@@ -55,6 +55,7 @@ describe "deleting a restaurant" do
 
 		expect(current_path).to eq '/restaurants'
 		expect(page).to_not have_content 'Abokado'
+		expect(page).to have_content 'Deleted successfully'
 	end
 
 end
