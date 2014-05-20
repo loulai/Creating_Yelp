@@ -17,6 +17,7 @@ describe 'creating a restaurant' do
 		visit '/restaurants/new'
 		fill_in 'Name', with: 'Pod'
 		fill_in 'Address', with: '1 City Road'
+		fill_in 'Cuisine', with: 'health amazingness'
 
 		click_button 'Create Restaurant'
 
