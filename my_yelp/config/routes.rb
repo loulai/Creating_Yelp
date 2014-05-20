@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'reviews/new'
+
   #get 'restaurants' => 'restaurants#index'
   resources :restaurants do
     resources :reviews
