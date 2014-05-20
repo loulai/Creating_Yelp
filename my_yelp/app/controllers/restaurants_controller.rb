@@ -14,7 +14,14 @@ class RestaurantsController < ApplicationController
 	end
 
 	def edit
-		raise 'hello'
+		@restaurant = Restaurant.find(params[:id])
+	end
+
+	def update
+		@restaurant = Restaurant.find(params[:id])
+		@restaurant.update(params[:restaurant].permit(:name, :address) )
+
+		redirect_to '/restaurants'
 	end
 
 end

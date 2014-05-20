@@ -37,7 +37,9 @@ describe "editing a restaurant" do
 
 		fill_in 'Name', with: "Pret a Manger"
 
-		expect(currrent_path).to eq '/restaurants'
+		click_button 'Update Restaurant'
+
+		expect(current_path).to eq '/restaurants'
 		expect(page).to have_content 'Pret a Manger'
 	end
   
