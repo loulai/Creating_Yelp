@@ -27,6 +27,4 @@ it "is not valid unless the address has three or more characters" do
 		expect(restaurant).to have(1).error_on(:address)
 	end
 
-
-
 end

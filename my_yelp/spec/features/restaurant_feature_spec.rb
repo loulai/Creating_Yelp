@@ -49,7 +49,7 @@ end
 
 describe "editing a restaurant" do
 
-	before { Restaurant.create(name: 'Pret', address: '5 City Road')}
+	before { Restaurant.create(name: 'Pret', address: '5 City Road', cuisine: 'Deli')}
 
 	it 'saves the change to the restaurant' do
 		visit '/restaurants'
@@ -67,7 +67,7 @@ end
 
 describe "deleting a restaurant" do
 		
-	before {Restaurant.create(name: 'Abokado', address: '10 City Road')}
+	before {Restaurant.create(name: 'Abokado', address: '10 City Road', cuisine: 'alright health food')}
 
 	it 'deletes a restaurant from the database' do
 		visit '/restaurants'
