@@ -33,7 +33,7 @@ describe "editing a restaurant" do
 
 	it 'saves the change to the restaurant' do
 		visit '/restaurants'
-		clink_link 'Edit Pret'
+		click_link 'Edit Pret'
 
 		fill_in 'Name', with: "Pret a Manger"
 

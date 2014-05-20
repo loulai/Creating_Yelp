@@ -6,6 +6,8 @@
 
 		<li><%= restaurant.name %></li>
 
+		<%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant)%>
+
 	<%end%>
 </ul>
 

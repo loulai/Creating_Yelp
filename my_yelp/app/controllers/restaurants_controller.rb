@@ -13,4 +13,8 @@ class RestaurantsController < ApplicationController
 		redirect_to '/restaurants'
 	end
 
+	def edit
+		raise 'hello'
+	end
+
 end
