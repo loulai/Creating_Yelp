@@ -27,123 +27,21 @@ describe 'creating a restaurant' do
 	
 end
 
+describe "editing a restaurant" do
 
+	before { Restaurant.create(name: 'Pret', address: '5 City Road')}
 
+	it 'saves the change to the restaurant' do
+		visit '/restaurants'
+		clink_link 'Edit Pret'
 
+		fill_in 'Name', with: "Pret a Manger"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		expect(currrent_path).to eq '/restaurants'
+		expect(page).to have_content 'Pret a Manger'
+	end
+  
+end
 
 
 
