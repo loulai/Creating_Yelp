@@ -2,8 +2,10 @@ require 'spec_helper'
 
 describe 'writing reviews' do
 
+	before { Restaurant.create(name: 'Eat', address: '50 City Road', cuisine: 'pot pie')}
+
 	specify 'restaurants begin with no reviews' do
-		expect(page).to have_content('0 review')
+		expect(page).to have_content('0 reviews')
 	end
 
 	it 'adds a review to the restaurant' do
