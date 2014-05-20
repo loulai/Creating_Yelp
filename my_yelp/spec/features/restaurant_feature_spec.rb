@@ -45,6 +45,20 @@ describe "editing a restaurant" do
   
 end
 
+describe "deleting a restaurant" do
+		
+	before {Restaurant.create(name: 'Abokado', address: '10 City Road')}
+
+	it 'deletes a restaurant from the database' do
+		visit '/restaurants'
+		click_link 'Delete Abokado'
+
+		expect(current_path).to eq '/restaurants'
+		expect(page).to_not have_content 'Abokado'
+	end
+
+end
+
 
 
 
