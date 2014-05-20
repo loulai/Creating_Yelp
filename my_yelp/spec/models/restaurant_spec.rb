@@ -4,7 +4,7 @@ describe Restaurant do
 
 	it "is not valid without a name" do
 		restaurant = Restaurant.new(name: nil)
-		expect(restaurant).to have(1).error_on(:name)
+		expect(restaurant).to have(2).error_on(:name)
 	end
 
 	it "is not valid without an address" do
