@@ -13,7 +13,9 @@ end
 
 describe 'creating a restaurant' do
 
-	it 'should add a restaurant to the index' do
+	context 'with valid data' do
+			
+		it 'should add a restaurant to the index' do
 		visit '/restaurants/new'
 		fill_in 'Name', with: 'Pod'
 		fill_in 'Address', with: '1 City Road'
@@ -25,7 +27,24 @@ describe 'creating a restaurant' do
 
 		expect(page).to have_content('Pod')
 	end
-	
+
+	end
+
+	context 'with invalid data' do
+
+		it 'shows an error' do
+		visit '/restaurants/new'
+		fill_in 'Name', with: 'grab'
+		fill_in 'Address', with: 'St'
+
+		click_button 'Create Restaurant'
+
+		expect(page).to have_content('error')
+
+	end
+		
+	end
+
 end
 
 describe "editing a restaurant" do
