@@ -5,7 +5,12 @@ class Restaurant < ActiveRecord::Base
 	has_many :reviews
 
 	def average_rating
-		"N/A"
+		if reviews.any?
+			total_review_sum = reviews.to_a.inject {|accum, rating| accum + rating.review}
+			tota_review_sum / reviews.count
+		else
+			"N/A"
+		end
 	end
 
 

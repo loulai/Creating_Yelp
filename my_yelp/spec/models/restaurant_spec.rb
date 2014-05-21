@@ -31,9 +31,21 @@ describe Restaurant do
 		
 		let(:nimcomsoup) { Restaurant.create(name: "NimComSoup", address: "Old Street Station", cuisine: "soup") }
 
-		it 'returns N/A when there are no reviews' do
-			expect(nimcomsoup.average_rating).to eq "N/A"
+		context 'no reviews yet' do
+			it 'returns N/A when there are no reviews' do
+				expect(nimcomsoup.average_rating).to eq "N/A"
+			end
 		end
+
+		context 'one review' do
+			before {nimcomspup.reviews.create(rating: 3)}
+			it 'returns the score of the single review' do
+				expect(nimcomsoup.average_rating).to eq "N/A"
+			end	
+		end
+		
+
+	
 
 	end
 
