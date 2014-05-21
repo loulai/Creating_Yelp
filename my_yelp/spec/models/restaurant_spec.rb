@@ -39,9 +39,20 @@ describe Restaurant do
 
 		context 'one review' do
 			before {nimcomsoup.reviews.create(rating: 3)}
-			
 			it 'returns the rating of the single review' do
 				expect(nimcomsoup.average_rating).to eq 3
+			end	
+		end
+
+		context 'more than one review' do
+
+			before do
+				nimcomsoup.reviews.create(rating: 3)
+				nimcomsoup.reviews.create(rating: 5)
+			end
+			
+			it 'returns the correct average rating' do
+				expect(nimcomsoup.average_rating).to eq 4
 			end	
 		end
 		

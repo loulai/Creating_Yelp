@@ -7,7 +7,7 @@ class Restaurant < ActiveRecord::Base
 	def average_rating
 		if reviews.any?
 			total_rating_sum = reviews.inject(0) {|accum, review| accum + review.rating}
-	
+			total_rating_sum / reviews.count
 		else
 			"N/A"
 		end
