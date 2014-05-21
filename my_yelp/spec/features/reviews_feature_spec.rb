@@ -11,6 +11,7 @@ describe 'writing reviews' do
 
 	it 'adds a review to the restaurant' do
 		visit '/restaurants'
+		expect(page).to have_content('Eat')
 		click_link 'Review Eat'
 
 		fill_in 'Thoughts', with: 'This restaurant was the bomb'
