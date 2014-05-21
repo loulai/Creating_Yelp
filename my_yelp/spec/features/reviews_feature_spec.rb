@@ -40,12 +40,10 @@ describe 'writing reviews' do
 	# end
 
 	it 'calculates the average rating' do
-
 		leave_review("I think there was a tooth in my chicken gyoza", 1)
 		leave_review("I want to go to Pod", 3)
 
 		expect(page).to have_content('Average Rating: 2')
-
 	end
 
 	def leave_review(thoughts, rating) 
