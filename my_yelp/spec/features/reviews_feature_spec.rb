@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'writing reviews' do
 
-	before { Restaurant.create(name: 'Eat', address: '50 City Road', cuisine: 'pot pie')}
+	before { Restaurant.create(name: 'Eat', address: '50 City Road', cuisine: 'Pot pie')}
 
 	specify 'restaurants begin with no reviews' do
 		visit '/restaurants'
