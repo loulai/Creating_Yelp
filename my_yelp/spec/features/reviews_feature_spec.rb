@@ -13,7 +13,7 @@ describe 'writing reviews' do
 		visit '/restaurants'
 		click_link 'Review Eat'
 
-		fill_in 'Review', with: 'This restaurant was the bomb'
+		fill_in 'Thoughts', with: 'This restaurant was the bomb'
 		select '4', from: 'Rating'
 		click_button 'Leave Review'
 
