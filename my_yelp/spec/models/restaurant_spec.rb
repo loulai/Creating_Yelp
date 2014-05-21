@@ -45,7 +45,6 @@ describe Restaurant do
 		end
 
 		context 'more than one review' do
-
 			before do
 				nimcomsoup.reviews.create(rating: 3)
 				nimcomsoup.reviews.create(rating: 5)
@@ -54,6 +53,18 @@ describe Restaurant do
 			it 'returns the correct average rating' do
 				expect(nimcomsoup.average_rating).to eq 4
 			end	
+		end
+
+		context 'non-integer average' do
+			before do
+				nimcomsoup.reviews.create(rating: 2)
+				nimcomsoup.reviews.create(rating: 5)
+			end
+			
+			it 'returns the correct average rating to one decimal place' do
+				expect(nimcomsoup.average_rating).to eq 3.5
+			end	
+
 		end
 		
 
