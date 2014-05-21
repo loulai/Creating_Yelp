@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
 
-
   def new
   	@restaurant = Restaurant.find(params[:restaurant_id])
   	@review = Review.new
@@ -11,7 +10,7 @@ class ReviewsController < ApplicationController
   	
   	@review = @restaurant.reviews.new(params[:review].permit(:thoughts, :rating))
 
-  	if @review.save
+  	if @review.save(params[:review].permit(:thoughts, :rating))
   		flash[:notice] = "Thank you for reviewing #{@restaurant.name}!"
   		redirect_to '/restaurants'
   	else
