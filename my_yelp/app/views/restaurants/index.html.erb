@@ -11,7 +11,7 @@
 		<h4><%= pluralize restaurant.reviews.count, 'review'%></h4>
 			<ul>
 				<% restaurant.reviews.each do |review| %>
-					<li><%= review.rating %> - <%= review.thoughts%></li>
+					<li><%= review.rating %>  <%= review.thoughts%></li>
 				<%end%>
 			</ul>
 	<%end%>

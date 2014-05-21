@@ -3,7 +3,6 @@ require 'spec_helper'
 describe 'writing reviews' do
 
 	before { Restaurant.create(name: 'Eat', address: '50 City Road', cuisine: 'Pot pie')}
-	let (:KoreanBBQ) { Restaurant.create(name: 'KoreanBBQ', address: 'korea town', cuisine: 'Korean')}
 
 	specify 'restaurants begin with no reviews' do
 		visit '/restaurants'
@@ -41,11 +40,17 @@ describe 'writing reviews' do
 	end
 
 	it 'calculates the average rating' do
-		visit '/restaurants'
+
+		leave_review("I think there was a tooth in my chicken gyoza", 1)
+		leave_review("I want to go to Pod", 3)
+
+		expect(page).to have_content('Average Rating: 2')
 
 	end
 
 	def leave_review(thoughts, rating) 
+		visit '/restaurants'
+		click_link 'Review Eat'
 		fill_in 'Thoughts', with: thoughts
 		select rating.to_s, from: 'Rating'
 		click_button 'Leave Review'
