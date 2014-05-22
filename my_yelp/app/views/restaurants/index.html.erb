@@ -9,41 +9,44 @@
 			<%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant)%>
 		<h4><%= pluralize restaurant.reviews.count, 'review'%></h4>
 		<h5>Average Rating: 
-			<%= star_rating(restaurant.average_rating) %>
 			<%= number_with_precision(restaurant.average_rating, precision: 1) %>
+			<%= star_rating(restaurant.average_rating) %>
+			
 		</h5>
 			<ul>
 				<% restaurant.reviews.each do |review| %>
 					<li><%= star_rating(review.rating) %> <%= review.thoughts%></li>
 				<%end%>
 			</ul>
+
+
+		<%= form_for [restaurant, @review] do |f| %>
+
+			<%= f.label :thoughts %>
+			<%= f.text_area :thoughts%>
+
+			<%= f.label :rating %>
+			<%= f.select :rating, 1..5, required: true %>
+
+			<%= f.submit 'Leave Review' %>
+
+		<%end%>
+
 	<%end%>
+
+
 </div>
 
 <% if @review.errors.any? %>
   <div id="review_error_explanation">
     <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
- 
     <ul>
     <% @review.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
-
   </div>
 <% end %>
-
-<%= form_for [@restaurant, @review] do |f| %>
-
-	<%= f.label :thoughts %>
-	<%= f.text_area :thoughts%>
-
-	<%= f.label :rating %>
-	<%= f.select :rating, 1..5, required: true %>
-
-	<%= f.submit 'Leave Review' %>
-
-<%end%>
 
 <%else%>
 	No restaurants added yet

@@ -13,7 +13,7 @@ describe 'writing reviews' do
 		it 'adds a review to the restaurant' do
 			visit '/restaurants'
 			expect(page).to have_content('Eat')
-			click_link 'Review Eat'
+			# click_link 'Review Eat'
 
 			fill_in 'Thoughts', with: 'This restaurant was the bomb'
 			select '4', from: 'Rating'
@@ -48,7 +48,7 @@ describe 'writing reviews' do
 
 	def leave_review(thoughts, rating) 
 		visit '/restaurants'
-		click_link 'Review Eat'
+		# click_link 'Review Eat'
 		fill_in 'Thoughts', with: thoughts
 		select rating.to_s, from: 'Rating'
 		click_button 'Leave Review'
