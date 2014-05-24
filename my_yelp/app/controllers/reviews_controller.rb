@@ -1,16 +1,17 @@
 class ReviewsController < ApplicationController
 
-  # def new
-  # 	@restaurant = Restaurant.find(params[:restaurant_id])
-  # 	@review = Review.new
-  # end
+  def new
+  	@restaurant = Restaurant.find(params[:restaurant_id])
+  	@review = Review.new
+  end
 
   def create
   	@restaurant = Restaurant.find(params[:restaurant_id])
   	
-  	@review = @restaurant.reviews.new(params[:review].permit(:thoughts, :rating))
+  	@review = @restaurant.reviews.create!(params[:review].permit(:thoughts, :rating))
 
-    render json: review
+    render 'create', content_type: :json
+    # render json: review.to_json(except: [:id, :created_at, :updated_at], include: :restaurant)
 
   	# if @review.save(params[:review].permit(:thoughts, :rating))
   	# 	flash[:notice] = "Thank you for reviewing #{@restaurant.name}!"
