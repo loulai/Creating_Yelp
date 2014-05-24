@@ -43,12 +43,11 @@ describe 'writing reviews' do
 		leave_review("I think there was a tooth in my chicken gyoza", 1)
 		leave_review("I want to go to Pod", 3)
 
-		expect(page).to have_content('Average Rating: 2')
+		expect(page).to have_content('Average Rating: 2.0')
 	end
 
 	def leave_review(thoughts, rating) 
 		visit '/restaurants'
-		# click_link 'Review Eat'
 		fill_in 'Thoughts', with: thoughts
 		select rating.to_s, from: 'Rating'
 		click_button 'Leave Review'
