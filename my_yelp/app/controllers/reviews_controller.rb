@@ -15,11 +15,11 @@ class ReviewsController < ApplicationController
       format.json { render json: review }
     end
 
-  	if @review.save(params[:review].permit(:thoughts, :rating))
-  		flash[:notice] = "Thank you for reviewing #{@restaurant.name}!"
-  		redirect_to '/restaurants'
-  	else
-  		render 'new'
-  	end
+  	# if @review.save(params[:review].permit(:thoughts, :rating))
+  	# 	flash[:notice] = "Thank you for reviewing #{@restaurant.name}!"
+  	# 	redirect_to '/restaurants'
+  	# else
+  	# 	render 'new'
+  	# end
   end
 end
