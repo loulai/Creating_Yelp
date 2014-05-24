@@ -10,9 +10,7 @@ class ReviewsController < ApplicationController
   	
   	@review = @restaurant.reviews.new(params[:review].permit(:thoughts, :rating))
 
-    respond_to do |format|
-      format.html { redirect_to '/restaurants'}
-      format.json { render json: review }
+    render json: review
     end
 
   	# if @review.save(params[:review].permit(:thoughts, :rating))
