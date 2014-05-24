@@ -11,7 +11,6 @@ class ReviewsController < ApplicationController
   	@review = @restaurant.reviews.new(params[:review].permit(:thoughts, :rating))
 
     render json: review
-    end
 
   	# if @review.save(params[:review].permit(:thoughts, :rating))
   	# 	flash[:notice] = "Thank you for reviewing #{@restaurant.name}!"
